@@ -5,8 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Tinder Effect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 <body>
+
+    <div class="w-full h-screen relative bg-black font-[Helvetica]">
+        <div class="imagecontainer w-full h-screen relative">
+            <div class="maincard z-[3] w-full h-screen absolute bg-orange-600"></div>
+            <div class="incomingcard z-[2] w-full h-screen absolute bg-green-600"></div>
+        </div>
+        <div class="left-0 top-0 w-full h-screen z-[4] bg-purple-600 absolute px-5 py-6">
+            <div class="navbar flex justify-between items-center text-white">
+                <div class="profileimg rounded-full w-[3.5rem] h-[3.5rem] bg-red-600"></div>
+                <h3 class=" capitalize text-xl font-medium  tracking-tighter font-semibold">They Liked You!</h3>
+                <div class="chaticon rounded-full  w-[3.5rem] h-[3.5rem] bg-white/20"></div>
+            </div>
+        </div>
+    </div>
+
+
 
     <script src="script.js"></script>
     
