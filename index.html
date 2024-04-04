@@ -7,6 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>    
     <title>Tinder Effect</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .detailscontainer{
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.9));
+        }
+    </style>
 
 </head>
 <body>
@@ -18,8 +23,8 @@
             </div>
             <div class="incomingcard z-[2] w-full h-screen absolute bg-green-600"></div>
         </div>
-        <div class="left-0 top-0 w-full h-screen z-[4] absolute px-5 py-6">
-            <div class="navbar flex justify-between items-center text-white">
+        <div class="left-0 top-0 w-full h-screen z-[4] absolute  flex flex-col justify-between">
+            <div class="navbar px-5 py-6 flex justify-between items-center text-white">
                 <div class="profileimg rounded-full w-[3.5rem] h-[3.5rem] overflow-hidden bg-red-600">
                     <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D" alt="">
                 </div>
@@ -31,6 +36,45 @@
                  </div>
                 </div>
             </div>
+            <div class="detailscontainer px-5 py-6 w-full">
+                <div class="details w-full">
+                    <div class="flex gap-4">
+                        <i class="w-[2rem] h-[2rem] bg-white ri-corner-left-up-line rounded-full justify-center font-bold flex"></i>
+                        <h3 class="text-white">USA, California</h3>
+                    </div>
+                    <div class="flex gap-5 text-white mt-1">
+                        <h1 class="text-6xl tracking-tighter font-regular">Victoria</h1>
+                        <h1 class="text-6xl tracking-tighter opacity-60 font-regular">20</h1>
+                    </div>
+                    <div class="tags flex gap-3 text-white mt-4">
+                        <div class="tag flex items-center bg-white/30  px-3 rounded-full py-1 gap-3">
+                            <i class="text-sm ri-music-2-fill"></i>
+                            <h5 class="text-sm tracking-tighter">music</h5>
+                        </div>
+                        <div class="tag flex items-center bg-white/30  px-3 rounded-full py-1 gap-3">
+                            <i class="text-sm ri-music-2-fill"></i>
+                            <h5 class="text-sm tracking-tighter">music</h5>
+                        </div>
+                        <div class="tag flex items-center bg-white/30  px-3 rounded-full py-1 gap-3">
+                            <i class="text-sm ri-music-2-fill"></i>
+                            <h5 class="text-sm tracking-tighter">music</h5>
+                        </div>
+                    </div>
+                    <div class="bio text-white/80 mt-5">
+                        <h1 class="text-xl">Bio</h1>
+                        <p class="tracking-tighter opacity-80">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem quae animi, iure incidunt ea aliquam saepe dignissimos mollitia quam, exercitationem, in laborum dicta quos! Officiis!</p>
+                    </div>
+                    <div class="flex gap-2 items-start mt-10">
+                        <button class="py-3 text-3xl font-semibold rounded-full w-1/2 bg-white">
+                            <i class="ri-close-line"></i>
+                        </button>
+                        <button class="py-3 text-3xl w-1/2 font-semibold rounded-full text-white bg-red-600">
+                            <i class="ri-heart-2-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
 
