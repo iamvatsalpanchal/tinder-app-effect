@@ -98,7 +98,6 @@ var users = [
 
 // https://plus.unsplash.com/premium_photo-1682095823248-bfc932d1dfd1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 
-
 let curr = 0
 let isAnimating = false;
 
@@ -142,7 +141,7 @@ function select(elem){
 
     setData(curr);
    
-    curr = 2;
+    curr = 4;
 
 })();
 
@@ -217,17 +216,17 @@ deny.addEventListener("click", function(){
         })
     });
 
-accept.addEventListener("click", function(){
-        imageChange();
-        setData(curr-1);
-        gsap.from(".details .element",{
-            y:"100%",
-            opacity:0,
-            stagger:.06,
-            ease:Power4.easeInOut,
-            duration:1
-        })
-    });
+// accept.addEventListener("click", function(){
+//         imageChange();
+//         setData(curr-1);
+//         gsap.from(".details .element",{
+//             y:"100%",
+//             opacity:0,
+//             stagger:.06,
+//             ease:Power4.easeInOut,
+//             duration:1
+//         })
+//     });
 
 
 (function containerCreator(){
