@@ -100,17 +100,18 @@ var users = [
 
 
 let curr = 0
+let isAnimating = false;
 
 
 function select(elem){
     return document.querySelector(elem);
 }
 
-// immediate invoked function expression or IIFE
-(function setInitial(){
-    select(".maincard img").src = users[curr].displayPic;
-    select(".incomingcard img").src = users[curr+1]?.displayPic;
-    
+
+
+(function setData(){
+
+
     select(".profileimg img").src = users[curr].profilePic;
     select(".badge h5").textContent = users[curr].pendingMessage;
     select(".location h3").textContent = users[curr].location;
@@ -131,38 +132,115 @@ function select(elem){
 
     select(".bio p").textContent = users[curr].bio;
 
+})();
 
 
-    
+// immediate invoked function expression or IIFE
+(function setInitial(){
+    select(".maincard img").src = users[curr].displayPic;
+    select(".incomingcard img").src = users[curr+1]?.displayPic;
+
+    setData(curr);
+   
     curr = 2;
 
 })();
 
 
+
 function imageChange(){
-    let tl = gsap.timeline();
 
-    tl.to(".maincard",{
-        scale:1.1,
-        opacity:0,
-        ease:Circ,
-        duration:0.9
-    },"a")
+    if(!isAnimating){
 
-    .from(".incomingcard",{
-        scale:0.9,
-        opacity:0,
-        ease:Circ,
-        duration:1.1
-    },"a")
+        isAnimating = true;
 
-};
-
+        let tl = gsap.timeline({
+            onComplete: function(){
+                isAnimating = false;
+                // alert("hey there!");
+                let main = select(".maincard");
+                let incoming = select(".incomingcard");
+    
+                incoming.classList.remove("z-[2]");
+                incoming.classList.add("z-[3]");
+                incoming.classList.remove("incomingcard");
+    
+                main.classList.remove("z-[3]");
+                main.classList.add("z-[2]");
+                gsap.set(main,{
+                    scale:1,
+                    opacity:1
+                })
+    
+                if(curr == users.length) curr = 0;
+                select("maincard img").src = users[curr].displayPic;
+    
+                main.classList.remove("maincard");
+                incoming.classList.add("maincard");
+                main.classList.add("incomingcard");
+    
+    
+    
+            }
+        });
+    
+        tl.to(".maincard",{
+            scale:1.1,
+            opacity:0,
+            ease:Circ,
+            duration:0.9
+        },"a")
+    
+        .from(".incomingcard",{
+            scale:0.9,
+            opacity:0,
+            ease:Circ,
+            duration:1.1
+        },"a")
+    
+    };
+}
+    
 
 let deny = select(".deny");
 let accept = select(".accept");
 
 deny.addEventListener("click", function(){
         imageChange();
+        setData(curr-1);
+        gsap.from(".details .element",{
+            y:"100%",
+            opacity:0,
+            stagger:.06,
+            ease:Power4.easeInOut,
+            duration:1
+        })
+    });
+
+accept.addEventListener("click", function(){
+        imageChange();
+        setData(curr-1);
+        gsap.from(".details .element",{
+            y:"100%",
+            opacity:0,
+            stagger:.06,
+            ease:Power4.easeInOut,
+            duration:1
+        })
+    });
+
+
+(function containerCreator(){
+    document.querySelector(".element")
+    .forEach(function(element){
+        let div = document.createElement("div");
+        div.classList.add(`${element.classList[1]}container`,'overflow-hidden');
+        // console.log(div);
+        div.appendChild(element);
+        select(".details").appendChild(div);
         
     })
+
+})();
+
+
